@@ -49,6 +49,7 @@ rsync -a \
       $root_dir/ $build_dir/public
 
 status "Setting up nginx"
+echo $(date)
 tar xzf $compile_nginx_tgz
 cp -f $compile_buildpack_dir/conf/nginx.conf nginx/conf/nginx.conf
 cp -f $compile_buildpack_dir/conf/mime.types nginx/conf/mime.types
@@ -71,3 +72,4 @@ if [[ "$(grep directory: Staticfile)X" != "X" ]]; then
 fi
 
 cp $compile_buildpack_bin/boot.sh .
+echo $(date)
